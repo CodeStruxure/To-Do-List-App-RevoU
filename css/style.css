@@ -1,0 +1,14 @@
+/* css/style.css — hanya 1 file sesuai instruksi */
+
+/* Google font (optional) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* { font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+/* tweak untuk icon calendar warna di chrome */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(2);
+}
+
+/* sembunyikan pesan error default — JS yang akan toggle kelas 'hidden' */
+.hidden { display: none; }
