@@ -1,33 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Todo List - Tailwind</title>
 
+  <!-- Tailwind CDN (cepat & cocok untuk mini project) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // kustom warna/tema tailwind
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'ms-card': '#182233',
+            'ms-bg': '#0b1220',
+            'ms-accent': '#6366f1'
+          }
+        }
+      }
+    }
+  </script>
 
-<!--CSS External-->
-<link rel="stylesheet" href="css\style.css">
-
+  <!-- CSS External -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+<body class="bg-ms-bg min-h-screen flex items-center justify-center p-6">
+  <div class="w-full max-w-3xl">
+    <div class="bg-ms-card/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/5">
+      <h1 class="text-center text-2xl font-semibold text-slate-200 mb-5">Todo List</h1>
 
-<body>
-    
-    <!--Header Section-->
-    <header></header>
+      <!-- Form -->
+      <div class="flex gap-3 mb-3">
+        <input id="taskInput"
+               type="text"
+               placeholder="Add a todo . . ."
+               class="flex-1 px-4 py-3 rounded-lg bg-slate-800 text-slate-200 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-ms-accent" />
 
-    <!--Main Section-->
-    <main></main>
+        <input id="dateInput"
+               type="date"
+               class="w-40 px-4 py-3 rounded-lg bg-slate-800 text-slate-200 focus:outline-none" />
 
-    <!--Footer Section-->
-    <footer></footer>  
+        <button id="addBtn"
+                class="w-12 h-12 rounded-lg bg-ms-accent text-white text-xl font-bold flex items-center justify-center hover:bg-indigo-600">
+          +
+        </button>
+      </div>
+
+      <!-- validation message -->
+      <p id="errorMsg" class="text-sm text-red-400 mb-3 hidden"></p>
+
+      <div class="flex justify-between items-center mb-4">
+  <div class="flex items-center gap-2">
+    <button id="filterBtn" class="px-3 py-2 rounded-md bg-slate-700 text-slate-200">
+      Filter: <span id="filterLabel" class="font-semibold ml-2">All</span>
+    </button>
+    <button id="deleteAllBtn" class="px-3 py-2 rounded-md bg-ms-accent text-white">
+    Delete All
+  </button>
+</div>
+</div>
+
+      <!-- Table -->
+      <div class="overflow-hidden rounded-lg">
+        <table class="w-full text-left">
+          <thead class="bg-slate-800">
+            <tr>
+              <th class="px-4 py-3 text-slate-400 text-sm uppercase">Task</th>
+              <th class="px-4 py-3 text-slate-400 text-sm uppercase">Due Date</th>
+              <th class="px-4 py-3 text-slate-400 text-sm uppercase">Status</th>
+              <th class="px-4 py-3 text-slate-400 text-sm uppercase">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="todoList" class="bg-[#0f1724]">
+            <tr>
+              <td colspan="4" class="px-4 py-6 text-center text-slate-400">No task found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
 
 
-    <!--Javascript External-->
-        <script src="js\script.js"></script>
-
-
-
+  <!-- JS External -->
+  <script src="js/script.js"></script>
 </body>
 </html>
